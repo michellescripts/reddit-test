@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reddit test</title>
+  </head>
+  <body>
+<h1>testing reddit</h1><h6>clone</h6>
+
+<section class="submit-link">
+  <form action="/add-link" method="post">
+    <label for="url">URL</label>
+    <input type="text" name="url" value="">
+    <label for="title">TITLE</label>
+    <input type="text" name="title" value="">
+    <button>Submit</button>
+
+
+    <!-- name matches data -->
+  </form>
+
+</section>
+
+  <main>
+    {{#each data}}
+    <form class="upvote" action="/upvote/{{this.id}}" method="post">
+      <button>U</button>
+    </form>
+    <!-- can use a tag: <a href="/upvote/{{this.id}}">U</a> -->
+    <span class="votes">{{this.votes}}</span>
+    <form class="downvote" action="/downvote/{{this.id}}" method="post">
+      <button>D</button>
+    </form>
+    <span class="title"><a href="{{this.url}}">{{this.title}}</a></span>
+    {{/each}}
+  </main>
+
+  </body>
+</html>
